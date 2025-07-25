@@ -1,0 +1,8 @@
+{
+  "cSpell.ignorePaths": [
+    "data/**",
+    "node_modules/**",
+    "**/*.css",
+    "tsconfig.json"
+  ]
+}
