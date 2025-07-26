@@ -3,6 +3,7 @@
     "data/**",
     "node_modules/**",
     "**/*.css",
+    "prisma/**",
     "tsconfig.json"
   ]
 }
