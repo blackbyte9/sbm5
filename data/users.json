@@ -1,0 +1,30 @@
+[
+  {
+    "id": "cmdqc6ejz0001etq47jpklr6d",
+    "password": "$2b$10$5pXFFJ4CsgEdXo/SzitU..wccnQfVN7Igv51kj8UuKt0FHp.WsV.m",
+    "name": "birgit",
+    "role": "ADMIN",
+    "active": true
+  },
+  {
+    "id": "cmdqc6eh60000etq4euko7dpo",
+    "password": "$2b$10$5pXFFJ4CsgEdXo/SzitU..wccnQfVN7Igv51kj8UuKt0FHp.WsV.m",
+    "name": "klaas",
+    "role": "ADMIN",
+    "active": true
+  },
+  {
+    "id": "cmdqc6em20002etq45vse01nd",
+    "password": "$2b$10$5pXFFJ4CsgEdXo/SzitU..wccnQfVN7Igv51kj8UuKt0FHp.WsV.m",
+    "name": "schueler1",
+    "role": "USER",
+    "active": true
+  },
+  {
+    "id": "cmdqc6ent0003etq4doirwu0o",
+    "password": "$2b$10$5pXFFJ4CsgEdXo/SzitU..wccnQfVN7Igv51kj8UuKt0FHp.WsV.m",
+    "name": "schueler2",
+    "role": "USER",
+    "active": false
+  }
+]

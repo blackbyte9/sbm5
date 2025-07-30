@@ -14,6 +14,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// ===== Enums =====
+enum Role {
+  USER
+  ADMIN
+}
+
+// ===== Auth =====
+model User {
+  id       String  @id @default(cuid())
+  password String
+  name     String
+  role     Role    @default(USER)
+  active   Boolean @default(true)
+}
+
 // ===== Models =====
 model Book {
   isbn String @id @unique

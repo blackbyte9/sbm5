@@ -1,7 +1,27 @@
 import NextAuth, { User, NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { z } from 'zod';
+import { readActiveUsers } from "../user/read";
+import bcrypt from "bcryptjs";
 
 export const BASE_PATH = "/api/auth";
+
+export interface AuthUser extends User {
+    id: string;
+}
+
+async function getUser(username: string, password: string): Promise<AuthUser | null> {
+    const users = readActiveUsers();
+    const user = (await users).find(
+        (user) => user.name === username && bcrypt.compareSync(password, user.password)
+    );
+    if (user?.id === 'undefined') {
+        return null;
+    }
+    else {
+        return user ? { id: user.id ?? "", name: user.name, email: user.name } : null;
+    }
+}
 
 const authOptions: NextAuthConfig = {
     providers: [
@@ -11,30 +31,28 @@ const authOptions: NextAuthConfig = {
                 username: { label: "Username", type: "text" },
                 password: { label: "Password", type: "password" },
             },
-            async authorize(credentials): Promise<User | null> {
-                const users = [
-                    {
-                        id: "admin1",
-                        userName: "admin",
-                        name: "Admin",
-                        password: "admin",
-                        email: "admin@donotreplay.com",
-                    },
-                ];
+            async authorize(credentials): Promise<AuthUser | null> {
+                if (!credentials) {
+                    return null; // Return null if no credentials are provided
+                }
+                const parsedCredentials = z
+                    .object({
+                        username: z.string().min(4).max(128),
+                        password: z.string().min(6).max(128)
+                    }).safeParse(credentials);
 
-                const user = users.find(
-                    (user) =>
-                        user.userName === credentials?.username &&
-                        user.password === credentials?.password
-                );
+                if (parsedCredentials.success) {
+                    const { username, password } = parsedCredentials.data;
 
-                return user
-                    ? {
-                        id: user.id,
-                        name: user.name,
-                        email: user.email,
-                    }
-                    : null;
+                    const user = await getUser(username, password);
+
+                    return user
+                        ? {
+                            id: user.id
+                        }
+                        : null;
+                }
+                return null; // Return null if credentials are invalid or not provided
             }
         }),
     ],
