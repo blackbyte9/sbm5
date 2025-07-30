@@ -20,6 +20,13 @@ enum Role {
   ADMIN
 }
 
+enum Status {
+  REMOVED
+  NEW
+  USED
+  DAMAGED
+}
+
 // ===== Auth =====
 model User {
   id       String  @id @default(cuid())
@@ -31,6 +38,36 @@ model User {
 
 // ===== Models =====
 model Book {
-  isbn String @id @unique
-  name String
+  isbn  String @id @unique
+  name  String
+  items Item[]
+}
+
+model Item {
+  id        String   @id @unique
+  isbn      String
+  status    Status   @default(NEW)
+  createdAt DateTime @default(now())
+  Borrow    Borrow[]
+  book      Book     @relation(fields: [isbn], references: [isbn])
+}
+
+model Student {
+  id        Int      @id @unique @default(autoincrement())
+  lastname  String
+  firstname String
+  course    String?
+  idOld     Int?
+  Borrow    Borrow[]
+}
+
+model Borrow {
+  id        Int       @id @unique @default(autoincrement())
+  itemId    String
+  studentId Int
+  active    Boolean   @default(true)
+  leased    DateTime  @default(now())
+  returned  DateTime?
+  item      Item      @relation(fields: [itemId], references: [id])
+  student   Student   @relation(fields: [studentId], references: [id])
 }
