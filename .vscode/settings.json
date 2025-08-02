@@ -5,5 +5,10 @@
     "**/*.css",
     "prisma/**",
     "tsconfig.json"
-  ]
+  ],
+  "cSpell.words": [
+    "isbn"
+  ],
+  "WillLuke.nextjs.addTypesOnSave": true,
+  "WillLuke.nextjs.hasPrompted": true
 }
