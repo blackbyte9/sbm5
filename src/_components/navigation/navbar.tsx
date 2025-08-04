@@ -28,7 +28,11 @@ export function NavBar() {
                 <Link href="/books" className="px-6" >Bücher</Link>
               </NavigationMenuLink>
               <NavigationMenuLink asChild>
-                <Link href="/students">Schüler:innen</Link>
+                <NavigationMenuLink asChild>
+                <Link href="/items" className="px-6" >Items</Link>
+              </NavigationMenuLink>
+              <NavigationMenuLink asChild></NavigationMenuLink>
+                <Link href="/students" className="px-6" >Schüler:innen</Link>
               </NavigationMenuLink>
               <hr className="my-2 h-px bg-green-400 border-0" />
               <NavigationMenuLink asChild>
