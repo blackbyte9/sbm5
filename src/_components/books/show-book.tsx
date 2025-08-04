@@ -6,7 +6,7 @@ export default function AllBooksTable() {
   const books = readBooks();
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Laden...</div>}>
       <Books books={books} />
     </Suspense>
   );

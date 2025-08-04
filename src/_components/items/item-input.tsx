@@ -4,6 +4,7 @@ import * as React from "react";
 import { Input } from "@/_components/ui/input";
 import { returnItem } from "@/_lib/leases/update";
 import { useRouter } from "next/navigation";
+import { leaseItem } from "@/_lib/leases/create";
 
 interface ItemInputProps {
     placeholder?: string;
@@ -14,9 +15,10 @@ type OptionType = "return" | "lease";
 interface ItemInputProps {
     placeholder?: string;
     option: OptionType;
+    student?: number; // Optional, if needed for leaseItem function}
 }
 
-export function ItemInput({ placeholder, option }: ItemInputProps) {
+export function ItemInput({ placeholder, option, student }: ItemInputProps) {
     const [value, setValue] = React.useState("");
     const router = useRouter();
 
@@ -29,7 +31,6 @@ export function ItemInput({ placeholder, option }: ItemInputProps) {
                 return;
             }
             const inId = input.value;
-
             if (option === "return") {
                 const result = await returnItem(inId);
                 if (result.ok) {
@@ -53,9 +54,34 @@ export function ItemInput({ placeholder, option }: ItemInputProps) {
                     }, 1500);
                 }
             } else if (option === "lease") {
-                setValue(`Item with code ${inId} has been leased.`);
-                if (outputDiv) {
-                    outputDiv.style.backgroundColor = "lightgreen"; // Change background color to light green
+                if (!student || student <= 0) {
+                    setValue("Schüler muss gültig sein, um ein Item auszuleihen.");
+                    if (outputDiv) {
+                        outputDiv.style.backgroundColor = "lightcoral"; // Change background color to light coral
+                    }
+                    setTimeout(() => {
+                        setValue("");
+                        if (outputDiv) {
+                            outputDiv.style.backgroundColor = ""; // Reset background color
+                        }
+                    }, 1500);
+                    return;
+                }
+                const result = await leaseItem(inId, student ?? 0);
+                if (result.ok) {
+                    setValue(`Item mit Code ${inId} an ${student} ausgeliehen.`);
+                    if (outputDiv) {
+                        outputDiv.style.backgroundColor = "lightgreen"; // Change background color to light green
+                    }
+                    setValue(result.message);
+                    setTimeout(() => {
+                        setValue("");
+                        if (outputDiv) {
+                            outputDiv.style.backgroundColor = ""; // Reset background color
+                        }
+                        router.refresh();
+                    }, 1500);
+                    return;
                 }
             }
             setTimeout(() => {
@@ -66,7 +92,7 @@ export function ItemInput({ placeholder, option }: ItemInputProps) {
             }, 1500);
             input.value = ""; // Clear the input field
         } else {
-            setValue("Invalid input. Please start with 'RSV' and have 7 digits.");
+            setValue("Ungültige Eingabe. Item Code muss mit 'RSV' beginnen und danach aus 7 Ziffern bestehen.");
             if (outputDiv) {
                 outputDiv.style.backgroundColor = "lightcoral"; // Change background color to light coral
             }

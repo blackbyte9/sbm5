@@ -19,7 +19,7 @@ export async function readStudents(): Promise<Student[]> {
 
 export async function readStudentById(id: number): Promise<Student | null> {
   const dbStudent = await prisma.student.findUnique({
-    where: { id },
+    where: { id: +id },
   });
   // Map DB fields to Book type
   return dbStudent ? { id: dbStudent.id, firstname: dbStudent.firstname, lastname: dbStudent.lastname, course: dbStudent.course } : null;

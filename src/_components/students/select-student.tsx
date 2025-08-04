@@ -35,7 +35,7 @@ export function SelectStudentDialog() {
                     Select Student
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="sm:max-w-[800px]">
                 <form
                     onSubmit={e => {
                         e.preventDefault();

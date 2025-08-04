@@ -31,7 +31,7 @@ export function AddBookDialog() {
             <DialogTrigger asChild>
                 <Button>
                     <FilePlus />
-                    Add Book
+                    Neues Buch
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
@@ -43,11 +43,11 @@ export function AddBookDialog() {
                     }}
                 >
                     <DialogHeader>
-                        <DialogTitle>New Book</DialogTitle>
+                        <DialogTitle>Neues Buch</DialogTitle>
                         <DialogDescription>
-                            Scan or write the ISBN of the book (without dashes or spaces).<br />
-                            Enter the Title.<br />
-                            Click save when you&apos;re done.
+                            Scanne oder schreibe die ISBN des Buches (ohne Striche oder Leerzeichen).<br />
+                            Gib den Titel ein.<br />
+                            Klicke auf Speichern, wenn du fertig bist.
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4">
@@ -62,10 +62,10 @@ export function AddBookDialog() {
                     </div>
                     <DialogFooter>
                         <DialogClose asChild>
-                            <Button variant="outline">Cancel</Button>
+                            <Button variant="outline">Abbruch</Button>
                         </DialogClose>
                         <DialogClose asChild>
-                            <Button type="submit">Save changes</Button>
+                            <Button type="submit">Speichern</Button>
                         </DialogClose>
                     </DialogFooter>
                 </form>

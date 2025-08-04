@@ -36,7 +36,7 @@ export function EditBookDialog(props: {
             <DialogTrigger asChild>
                 <Button>
                     <Pen />
-                    Edit
+                    Bearbeiten
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
@@ -50,8 +50,8 @@ export function EditBookDialog(props: {
                     <DialogHeader>
                         <DialogTitle>Edit Book</DialogTitle>
                         <DialogDescription>
-                            The ISBN is not editable<br />
-                            Click save when you&apos;re done.
+                            Die ISBN kann nicht geändert werden.<br />
+                            Klicke auf Speichern, wenn du fertig bist.
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4">
@@ -66,10 +66,10 @@ export function EditBookDialog(props: {
                     </div>
                     <DialogFooter>
                         <DialogClose asChild>
-                            <Button variant="outline">Cancel</Button>
+                            <Button variant="outline">Abbrechen</Button>
                         </DialogClose>
                         <DialogClose asChild>
-                            <Button type="submit">Save changes</Button>
+                            <Button type="submit">Speichern</Button>
                         </DialogClose>
                     </DialogFooter>
                 </form>

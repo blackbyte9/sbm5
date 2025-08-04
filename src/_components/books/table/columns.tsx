@@ -20,7 +20,7 @@ export const columns: ColumnDef<Book>[] = [
   },
   {
     accessorKey: "leasedCount",
-    header: ({ column }) => SortingHeader({ column, title: "Leased items" }),
+    header: ({ column }) => SortingHeader({ column, title: "Ausgeliehene Items" }),
   },
   {
     id: "actions",
