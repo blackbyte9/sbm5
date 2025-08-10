@@ -1,8 +1,10 @@
-import NextAuth, { User, NextAuthConfig } from "next-auth";
+import NextAuth, { User, NextAuthConfig, Session } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { JWT } from "next-auth/jwt";
 import { z } from 'zod';
-import { readActiveUsers } from "../user/read";
+import { readActiveUsers, readUserById } from "../user/read";
 import bcrypt from "bcryptjs";
+import { Role } from "../user/type";
 
 export const BASE_PATH = "/api/auth";
 
@@ -21,6 +23,14 @@ async function getUser(username: string, password: string): Promise<AuthUser | n
     else {
         return user ? { id: user.id ?? "", name: user.name, email: user.name } : null;
     }
+}
+
+export async function checkAdminRole(userId: string): Promise<boolean> {
+    const user = await readUserById(userId);
+    if (!user) {
+        return false;
+    }
+    return user?.role === Role.ADMIN;
 }
 
 const authOptions: NextAuthConfig = {
@@ -58,6 +68,14 @@ const authOptions: NextAuthConfig = {
     ],
     basePath: BASE_PATH,
     secret: process.env.NEXTAUTH_SECRET,
+    callbacks: {
+        async session({ session, token }: { session: Session; token: JWT; }) {
+            if (session?.user) {
+                session.user.id = token.sub ?? "";
+            }
+            return session;
+        }
+    }
 };
 
 export const { handlers, auth, signIn, signOut } = NextAuth(authOptions);

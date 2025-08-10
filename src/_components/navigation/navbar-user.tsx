@@ -8,9 +8,8 @@ import {
     NavigationMenuContent,
     navigationMenuTriggerStyle
 } from "../ui/navigation-menu";
-import { Session } from "next-auth";
 
-export function NavBarUser({ _session, isAdmin }: { _session: Session | null, isAdmin?: boolean }) {
+export function NavBarUser({ isAdmin }: { isAdmin?: boolean }) {
     return (
         <nav className="bg-green-800 text-black shadow">
             <NavigationMenu className="container mx-auto px-4 py-2" viewport={false}>

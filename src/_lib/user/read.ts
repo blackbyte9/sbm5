@@ -37,3 +37,26 @@ export async function readActiveUsers(): Promise<User[]> {
     active
   }));
 }
+
+export async function readUserById(id: string): Promise<User | null> {
+  const dbUser = await prisma.user.findUnique({
+    where: { id },
+    select: {
+      id: true,
+      password: true,
+      name: true,
+      role: true,
+      active: true
+    }
+  });
+  if (!dbUser) {
+    return null;
+  }
+  return {
+    id: dbUser.id,
+    password: dbUser.password,
+    name: dbUser.name,
+    role: dbUser.role as import("./type").Role,
+    active: dbUser.active
+  };
+}
