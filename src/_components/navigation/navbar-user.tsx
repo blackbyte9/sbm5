@@ -48,6 +48,18 @@ export function NavBarUser({ isAdmin }: { isAdmin?: boolean }) {
                                 : null}
                         </NavigationMenuContent>
                     </NavigationMenuItem>
+                    {isAdmin ?
+                        <>
+                            <NavigationMenuItem>
+                                <NavigationMenuTrigger>Admin</NavigationMenuTrigger>
+                                <NavigationMenuContent>
+                                    <NavigationMenuLink asChild>
+                                        <Link href="/users" className="px-6" >Benutzer</Link>
+                                    </NavigationMenuLink>
+                                </NavigationMenuContent>
+                            </NavigationMenuItem>
+                        </>
+                        : null}
                     <NavigationMenuItem className="text-3x1 text-white font-bold px-8 text-right">
                         <NavigationMenuLink asChild>
                             <Link href="/api/auth/signout" className="text-3x1 font-bold px-8">Logout</Link>
