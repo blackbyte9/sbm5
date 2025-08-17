@@ -5,7 +5,7 @@ const Return = async () => {
 
     return (
         <div>
-            <h2>Return Items</h2>
+            <h2>Zurückgeben</h2>
             <StudentDetail id={-1} />
             <ItemInput option={"return"} />
         </div>

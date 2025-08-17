@@ -7,11 +7,11 @@ const Users = async () => {
     const isAdmin = await checkAdminRole(session?.user?.id ?? "");
     return (
         <div>
-            <h2>Users</h2>
+            <h2>Benutzer</h2>
             {isAdmin ?
                 <><div className="flex justify-end mb-4">
                 </div><AllUsersTable /></>
-                : <p>You do not have permission to view this page.</p>}
+                : <p>Keine Berechtigung, diese Seite zu besuchen.</p>}
         </div>
     );
 };
