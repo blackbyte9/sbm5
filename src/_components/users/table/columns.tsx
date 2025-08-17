@@ -4,6 +4,7 @@ import { SortingHeader } from "@/_components/table/sorting-header";
 import { ColumnDef } from "@tanstack/react-table";
 import { Role, User } from "@/_lib/user/type";
 import { EditUserDialog } from "../edit-user";
+import { EditPasswordDialog } from "../edit-password";
 
 export const columns: ColumnDef<User>[] = [
   {
@@ -33,6 +34,18 @@ export const columns: ColumnDef<User>[] = [
           e.stopPropagation();
         }}
       >
+        <EditPasswordDialog
+          userData={{
+            id: row.original.id ?? "",
+            name: row.original.name,
+            password: "", // Password is not editable here
+            role: row.original.role ?? Role.USER, // Replace "user" with a valid default Role value if needed
+            active: row.original.active ?? false,
+          }}
+          onPasswordEdited={() => {
+            onUserEdited();
+          }}
+        />
         <EditUserDialog
           userData={{
             id: row.original.id ?? "",
