@@ -29,7 +29,7 @@ export function AddItemDialog(props: {
             <DialogTrigger asChild>
                 <Button>
                     <FilePlus />
-                    Add Item
+                    Neues Item
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
@@ -41,24 +41,25 @@ export function AddItemDialog(props: {
                     }}
                 >
                     <DialogHeader>
-                        <DialogTitle>New Item</DialogTitle>
+                        <DialogTitle>Neues Item</DialogTitle>
                         <DialogDescription>
-                            Scan or write the Id of the Item (from the label ... starting with RSV...).<br />
-                            Click save when you&apos;re done.
+                            Scan oder schreibe die ID des Items (vom Label ... die ID beginnt mit RSV...).<br />
+                            Klicke auf Speichern, wenn du fertig bist.
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4">
                         <div className="grid gap-3">
-                            <Label htmlFor="id">Item Id</Label>
+                            <Label htmlFor="id">Item ID</Label>
                             <Input id="id" name="id" defaultValue="" />
                         </div>
                     </div>
+                    <br />
                     <DialogFooter>
                         <DialogClose asChild>
-                            <Button variant="outline">Cancel</Button>
+                            <Button variant="outline">Abbruch</Button>
                         </DialogClose>
                         <DialogClose asChild>
-                            <Button type="submit">Save changes</Button>
+                            <Button type="submit">Speichern</Button>
                         </DialogClose>
                     </DialogFooter>
                 </form>

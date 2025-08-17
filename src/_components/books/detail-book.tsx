@@ -8,7 +8,7 @@ export default function BookDetail(props: {
     const book = readBookByIsbn(props.isbn);
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div>Laden...</div>}>
             <Book_ book={book} />
         </Suspense>
     );

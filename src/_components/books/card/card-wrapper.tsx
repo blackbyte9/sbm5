@@ -14,8 +14,8 @@ export default function Book_({
   if (bookDetail === null) {
     return (
       <div className="p-4">
-        <DetailCard title="Book not found">
-          <div>Please select a book</div>
+        <DetailCard title="Buch nicht gefunden">
+          <div>Bitte ein Buch auswählen</div>
         </DetailCard>
       </div>
     );

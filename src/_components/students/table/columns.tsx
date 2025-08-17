@@ -11,18 +11,18 @@ export const columns: ColumnDef<Student>[] = [
   },
   {
     accessorKey: "firstname",
-    header: ({ column }) => SortingHeader({ column, title: "First Name" }),
+    header: ({ column }) => SortingHeader({ column, title: "Vorname" }),
   },
   {
     accessorKey: "lastname",
-    header: ({ column }) => SortingHeader({ column, title: "Last Name" }),
+    header: ({ column }) => SortingHeader({ column, title: "Nachname" }),
   },
   {
     accessorKey: "course",
-    header: ({ column }) => SortingHeader({ column, title: "Course" }),
+    header: ({ column }) => SortingHeader({ column, title: "Klasse" }),
   },
   {
     accessorKey: "leases",
-    header: ({ column }) => SortingHeader({ column, title: "Leased items" }),
+    header: ({ column }) => SortingHeader({ column, title: "Anzahl ausgeliehen" }),
   },
 ];

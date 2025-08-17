@@ -15,7 +15,7 @@ export const columns: ColumnDef<Lease>[] = [
   },
   {
     accessorKey: "Active",
-    header: ({ column }) => SortingHeader({ column, title: "Active" }),
+    header: ({ column }) => SortingHeader({ column, title: "Aktiv" }),
     cell: ({ row }) => {
       const active = row.original.active;
       return active ? "Yes" : "No";
@@ -23,7 +23,7 @@ export const columns: ColumnDef<Lease>[] = [
   },
   {
     accessorKey: "leased",
-    header: ({ column }) => SortingHeader({ column, title: "Leased" }),
+    header: ({ column }) => SortingHeader({ column, title: "Ausgeliehen" }),
     cell: ({ row }) => {
       const leased = row.getValue("leased");
       return new Date(leased as string).toLocaleDateString("de-DE", {
@@ -35,7 +35,7 @@ export const columns: ColumnDef<Lease>[] = [
   },
   {
     accessorKey: "returned",
-    header: ({ column }) => SortingHeader({ column, title: "Returned" }),
+    header: ({ column }) => SortingHeader({ column, title: "Zurückgegeben" }),
     cell: ({ row }) => {
       const returned = row.getValue("returned");
       if (row.original.active) {

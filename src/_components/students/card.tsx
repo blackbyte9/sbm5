@@ -7,7 +7,7 @@ export async function StudentDetailCard({ params }: { params: { id: string | str
 
     const student = await readStudentById(+id);
     if (!student) {
-        return <div>Student not found</div>;
+        return <div>Schüler nicht gefunden</div>;
     }
     const title = await StudentTitle(
         student.id ?? 0,
@@ -19,9 +19,9 @@ export async function StudentDetailCard({ params }: { params: { id: string | str
     return (
         <div className="p-4">
             <DetailCard title={title}>
-                <div>First Name: {student.firstname}</div>
-                <div>Last Name: {student.lastname}</div>
-                <div>Course: {student.course}</div>
+                <div>Vorname: {student.firstname}</div>
+                <div>Nachname: {student.lastname}</div>
+                <div>Klasse: {student.course}</div>
             </DetailCard>
         </div>
     );

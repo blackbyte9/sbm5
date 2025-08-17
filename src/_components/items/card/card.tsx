@@ -16,7 +16,7 @@ export function ItemDetailCard<TData extends Item>({
       <DetailCard title={title}>
         <div> {data.isbn}</div>
         <div> Status: {data.status}</div>
-        <div>Leased: {data.leased ? 'Yes' : 'No'}</div>
+        <div>Ausgeliehen: {data.leased ? 'Yes' : 'No'}</div>
       </DetailCard>
     </div>
   );

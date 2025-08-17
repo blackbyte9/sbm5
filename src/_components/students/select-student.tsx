@@ -32,7 +32,7 @@ export function SelectStudentDialog() {
             <DialogTrigger asChild>
                 <Button>
                     <FilePlus />
-                    Select Student
+                    Schüler auswählen
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[800px]">
@@ -44,20 +44,21 @@ export function SelectStudentDialog() {
                     }}
                 >
                     <DialogHeader>
-                        <DialogTitle>Select Student</DialogTitle>
+                        <DialogTitle>Schüler auswählen</DialogTitle>
                         <DialogDescription>
-                            Select Student in the list below.<br />
+                            Wähle einen Schüler aus der Liste.<br />
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4">
                         <AllStudentsTable />
                     </div>
+                    <br />
                     <DialogFooter>
                         <DialogClose asChild>
-                            <Button variant="outline">Cancel</Button>
+                            <Button variant="outline">Abbruch</Button>
                         </DialogClose>
                         <DialogClose asChild>
-                            <Button type="submit">Select</Button>
+                            <Button type="submit">Auswählen</Button>
                         </DialogClose>
                     </DialogFooter>
                 </form>

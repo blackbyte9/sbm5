@@ -19,7 +19,7 @@ export function DetailCard({ title, children }: DetailCardProps) {
                     <CardTitle>{title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    {children ? children : <p>Empty</p>}
+                    {children ? children : <p>Leer</p>}
                 </CardContent>
             </Card>
         </div>

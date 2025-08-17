@@ -60,6 +60,7 @@ export function AddBookDialog() {
                             <Input id="title" name="title" defaultValue="" />
                         </div>
                     </div>
+                    <br />
                     <DialogFooter>
                         <DialogClose asChild>
                             <Button variant="outline">Abbruch</Button>

@@ -8,7 +8,7 @@ export function LeasesByStudentTable(props: {
   const leases = readActiveLeasesByStudent(props.id);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Laden...</div>}>
       <Leases leases={leases} />
     </Suspense>
   );

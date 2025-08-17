@@ -6,7 +6,7 @@ export default function AllStudentsTable() {
   const students = readStudents();
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Laden...</div>}>
       <Students students={students} />
     </Suspense>
   );

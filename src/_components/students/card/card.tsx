@@ -14,9 +14,9 @@ export function StudentDetailCard<TData extends Item>({
   return (
     <div className="p-4">
       <DetailCard title={title}>
-        <div> First Name: {data.firstname}</div>
-        <div> Last Name: {data.lastname}</div>
-        <div> Course: {data.course}</div>
+        <div> Vorname: {data.firstname}</div>
+        <div> Nachname: {data.lastname}</div>
+        <div> Klasse: {data.course}</div>
       </DetailCard>
     </div>
   );

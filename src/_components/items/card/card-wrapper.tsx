@@ -16,7 +16,7 @@ export default function Item_({
     return (
       <div className="p-4">
         <DetailCard title="Item not found">
-          <div>Please select an Item</div>
+          <div>Bitte ein Item auswählen.</div>
         </DetailCard>
       </div>
     );

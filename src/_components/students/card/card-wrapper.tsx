@@ -15,8 +15,8 @@ export default function Student_({
   if (studentDetail === null) {
     return (
       <div className="p-4">
-        <DetailCard title="Student not found">
-          <div>Please select a student</div>
+        <DetailCard title="Schüler nicht gefunden">
+          <div>Bitte einen Schüler auswählen</div>
         </DetailCard>
       </div>
     );

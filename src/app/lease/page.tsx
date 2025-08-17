@@ -5,7 +5,7 @@ const Lease = async () => {
 
     return (
         <div>
-            <h2>Lease Items</h2>
+            <h2>Ausleihen</h2>
             <StudentDetail id={-1} />
             <div className="flex justify-end mb-4">
                 <SelectStudentDialog />

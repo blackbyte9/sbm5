@@ -6,7 +6,7 @@ export default function AllItemsTable() {
   const items = readItems();
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Laden...</div>}>
       <Items items={items} />
     </Suspense>
   );
@@ -18,7 +18,7 @@ export function ItemsByIsbnTable(props: {
   const items = readItemsByIsbn(props.isbn);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Laden...</div>}>
       <Items items={items} />
     </Suspense>
   );

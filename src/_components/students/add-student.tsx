@@ -33,7 +33,7 @@ export function AddStudentDialog() {
             <DialogTrigger asChild>
                 <Button>
                     <FilePlus />
-                    Add Student
+                    Schüler hinzufügen
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
@@ -45,32 +45,33 @@ export function AddStudentDialog() {
                     }}
                 >
                     <DialogHeader>
-                        <DialogTitle>New Student</DialogTitle>
+                        <DialogTitle>Neuer Schüler</DialogTitle>
                         <DialogDescription>
-                            Enter name and course.<br />
-                            Click save when you&apos;re done.
+                            Name und Klasse eingeben.<br />
+                            Klicke auf Speichern, wenn du fertig bist.
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4">
                         <div className="grid gap-3">
-                            <Label htmlFor="firstname">First Name</Label>
+                            <Label htmlFor="firstname">Vorname</Label>
                             <Input id="firstname" name="firstname" defaultValue="" />
                         </div>
                         <div className="grid gap-3">
-                            <Label htmlFor="lastname">Last Name</Label>
+                            <Label htmlFor="lastname">Nachname</Label>
                             <Input id="lastname" name="lastname" defaultValue="" />
                         </div>
                         <div className="grid gap-3">
-                            <Label htmlFor="course">Course</Label>
+                            <Label htmlFor="course">Klasse</Label>
                             <Input id="course" name="course" defaultValue="" />
                         </div>
                     </div>
+                    <br />
                     <DialogFooter>
                         <DialogClose asChild>
-                            <Button variant="outline">Cancel</Button>
+                            <Button variant="outline">Abbruch</Button>
                         </DialogClose>
                         <DialogClose asChild>
-                            <Button type="submit">Save changes</Button>
+                            <Button type="submit">Speichern</Button>
                         </DialogClose>
                     </DialogFooter>
                 </form>

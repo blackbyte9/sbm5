@@ -14,8 +14,8 @@ export function BookDetailCard<TData extends Book>({
   return (
     <div className="p-4">
       <DetailCard title={title}>
-        <div>Count of Items: {data.itemCount}</div>
-        <div>Count of leased Items: {data.leasedCount}</div>
+        <div>Anzahl von Items: {data.itemCount}</div>
+        <div>Anzahl ausgeliehener Items: {data.leasedCount}</div>
       </DetailCard>
     </div>
   );

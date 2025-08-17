@@ -111,7 +111,7 @@ export function ItemInput({ placeholder, option, student }: ItemInputProps) {
             <Input
                 type="text"
                 onChange={e => handleChange(e.target)}
-                placeholder={placeholder || "Type here..."}
+                placeholder={placeholder || "ID scannen..."}
                 className="text-base"
             />
             <div id="output" className="mt-4 p-2 border rounded bg-muted">

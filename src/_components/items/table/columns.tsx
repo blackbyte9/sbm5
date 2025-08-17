@@ -19,6 +19,6 @@ export const columns: ColumnDef<Item>[] = [
   },
   {
     accessorKey: "leased",
-    header: ({ column }) => SortingHeader({ column, title: "Leased" }),
+    header: ({ column }) => SortingHeader({ column, title: "Ausgeliehen" }),
   },
 ];

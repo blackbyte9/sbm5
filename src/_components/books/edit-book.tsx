@@ -64,6 +64,7 @@ export function EditBookDialog(props: {
                             <Input id="title" name="title" defaultValue={props.bookData.title} />
                         </div>
                     </div>
+                    <br />
                     <DialogFooter>
                         <DialogClose asChild>
                             <Button variant="outline">Abbrechen</Button>

@@ -9,7 +9,7 @@ export default function ItemDetail(props: {
     const item = readItemById(props.id);
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div>Laden...</div>}>
             <Item_ item={item} />
         </Suspense>
     );

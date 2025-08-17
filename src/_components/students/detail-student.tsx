@@ -9,7 +9,7 @@ export default function StudentDetail(props: {
     const student = readStudentById(+props.id);
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div>Laden...</div>}>
             <Student_ student={student} />
         </Suspense>
     );
