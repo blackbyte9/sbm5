@@ -27,6 +27,14 @@ enum Status {
   DAMAGED
 }
 
+enum StudentStatus {
+  ACTIVE
+  INACTIVE
+  TEACHER
+  OLD
+}
+
+
 // ===== Auth =====
 model User {
   id       String  @id @default(cuid())
@@ -56,6 +64,7 @@ model Student {
   id        Int      @id @unique @default(autoincrement())
   lastname  String
   firstname String
+  status    StudentStatus @default(ACTIVE)
   course    String?
   idOld     Int?
   Borrow    Borrow[]
