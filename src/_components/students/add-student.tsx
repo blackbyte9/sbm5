@@ -21,8 +21,8 @@ export function AddStudentDialog() {
         const student = {
             firstname: formData.get("firstname") as string,
             lastname: formData.get("lastname") as string,
-            course: formData.get("course") as string,
-            id: undefined
+            course: formData.get("course") as string || null,
+            idOld: null
         };
         await createStudent(student);
         onStudentCreated();
