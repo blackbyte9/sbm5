@@ -43,7 +43,7 @@ export function NavBarUser({ isAdmin }: { isAdmin?: boolean }) {
                             </NavigationMenuLink>
                             {isAdmin ?
                                 <><hr className="my-2 h-px bg-green-400 border-0" /><NavigationMenuLink asChild>
-                                    <Link href="/students">Schüler:innen importieren</Link>
+                                    <Link href="/students/import">Schüler:innen importieren</Link>
                                 </NavigationMenuLink></>
                                 : null}
                         </NavigationMenuContent>

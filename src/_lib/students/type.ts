@@ -1,7 +1,5 @@
-export type Student = {
-    id: number | undefined;
-    lastname: string;
-    firstname: string;
-    course: string | null;
+import { Student as PrismaStudent } from "@/_generated/prisma";
+
+export type Student = PrismaStudent & {
     leases?: number;
 };
