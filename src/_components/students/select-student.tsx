@@ -21,7 +21,7 @@ export function SelectStudentDialog() {
             firstname: formData.get("firstname") as string,
             lastname: formData.get("lastname") as string,
             course: formData.get("course") as string,
-            id: undefined
+            idOld: null
         };
         await createStudent(student);
         onStudentCreated();
